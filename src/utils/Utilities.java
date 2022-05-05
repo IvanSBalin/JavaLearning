@@ -31,6 +31,13 @@ public class Utilities {
             System.out.println("\u001B[31m" + "Fail" + "\u001B[0m");
         }
     }
+    public static void verifyEqualsBoolean(boolean actualResult, boolean expectedResult) {
+        if (expectedResult == actualResult) {
+            System.out.println("\u001B[32m" + "Pass" + "\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m" + "Fail" + "\u001B[0m");
+        }
+    }
     // Number of task
     public static int numberTask = 0;
 
