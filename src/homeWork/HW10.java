@@ -2,6 +2,8 @@ package homeWork;
 
 import utils.Utilities;
 
+import java.util.Locale;
+
 public class HW10 {
 
     public static String capitalizeWords(String sentense) {
@@ -130,6 +132,36 @@ public class HW10 {
             return false;
         }
     }
+    //7. Напишите метод, который принимает на вход строку, и добавляет Кавычки в
+// начале строки, точку и кавычки в конце строки с помощью метода concat()
+    public static String quotes(String text) {
+        if (text.isEmpty()) {
+
+            return "Строка пустая";
+        } else {
+            text = text.trim();
+            String quotesStart = "\"";
+            String quotesEnd = ".\"";
+            text = quotesStart.concat(text).concat(quotesEnd);
+        }
+        //System.out.println(text);
+        return text;
+    }
+    //8. Напишите метод, кторый принимает на вход название города и исправляет написание:
+    public static String editWord(String text) {
+        if (text.isEmpty()) {
+
+            return "Строка пустая";
+        } else {
+            text = text.trim();
+            String firstLetter = text.substring(0, 1).toUpperCase();
+            text = text.substring(1).toLowerCase();
+
+            text = firstLetter.concat(text);
+        }
+        //System.out.println(text);
+        return text;
+    }
 
     public static void main(String[] args) {
         System.out.println(capitalizeWords("       happy birthday"));
@@ -234,5 +266,24 @@ public class HW10 {
                         "Look what is best, that best I wish in thee.\n" +
                         "This wish I have; then ten times happy me.")
                 , false);
+
+        Utilities.taskNumber();
+// 7. Test Data:
+//“One” → ““One.””
+//“    TWO  “ → ““TWO.””
+        Utilities.verifyEqualsString(quotes("One")
+                , "\"One.\"");
+        Utilities.verifyEqualsString(quotes("    TWO  ")
+                , "\"TWO.\"");
+
+        Utilities.taskNumber();
+// 8. Test Data:
+//“ташкент” → “Ташкент”
+//“ЧикаГО” → “Чикаго”
+        Utilities.verifyEqualsString(editWord("ташкент")
+                , "Ташкент");
+        Utilities.verifyEqualsString(editWord("ЧикаГО")
+                , "Чикаго");
+
     }
 }
